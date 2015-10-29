@@ -19,7 +19,7 @@ define([
 							'<div class="movie-info">'+
 								'<h2><%= title %></h2>'+
 								'<h4><%= hu_title %></h4>'+
-								'<p><%= full_plot || plot %></p>' +
+								'<p><%= plot %></p>' +
 								'<ul class="spec">' +
 									'<li>Released date: <%= new Date(release_date).toDateString() %></li>'+
 									'<li>Uploaded date: <%= new Date(lastupload).toDateString() %></li>'+

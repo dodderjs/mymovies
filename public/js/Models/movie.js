@@ -7,8 +7,9 @@ define([
 
 	return Backbone.Model.extend({
 		defaults: {
-			hu_title: '',
 			id: '',
+			title: '',
+			hu_title: '',
 			imageurl: null,
 			imdb_rank: 0,
 			lastupload: 0,
@@ -17,7 +18,6 @@ define([
 			plot: '',
 			release_date: 0,
 			runtime: 0,
-			title: '',
 			year: 0,
 			fresh: false
 		},

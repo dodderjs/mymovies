@@ -12,13 +12,23 @@ define([
 		template: _.template(
 						'<div class="movieDetails">' +
 							'<figure>' +
-								'<img src="<%= imageurl ? imageurl.small : "/images/noimage.jpg" %>" width="150" />'+
+								'<a href="http://www.imdb.com/title/<%= id %>" target="_blank">' +
+									'<img src="<%= imageurl ? imageurl.small : "/images/noimage.jpg" %>" width="150" />'+
+								'</a>' +
 							'</figure>' +
 							'<div class="movie-info">'+
-								'<h2 title="<%= title %>"><%= title %></h2>'+
+								'<h2><%= title %></h2>'+
+								'<h4><%= hu_title %></h4>'+
+								'<p><%= full_plot || plot %></p>' +
 								'<ul class="spec">' +
-									'<li>Uploaded: <%= lastupload %></li>'+
-									'<li>Rank: <%= imdb_rank %></li>'+
+									'<li>Released date: <%= new Date(release_date).toDateString() %></li>'+
+									'<li>Uploaded date: <%= new Date(lastupload).toDateString() %></li>'+
+									'<li>Rank: ' +
+										'<a href="http://www.imdb.com/title/<%= id %>" target="_blank">' +
+											'<%= imdb_rank %>' +
+										'</a>' +
+									'</li>'+
+									'<li>Runtime: <%= runtime %></li>'+
 								'</ul>'+
 								'<div id="Torrents"></div>' +
 							'</div>'+

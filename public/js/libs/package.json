@@ -4,11 +4,12 @@
   "description": "client lib",
   "author": "",
   "license": "ISC",
+  "private": true,
+  "scripts": {},
   "dependencies": {
-    "backbone": "file:backbone",
-    "jquery": "file:jquery",
+    "backbone": "^1.2.3",
+    "jquery": "^2.1.4",
     "jquery.cookie": "^1.4.1",
-    "requirejs": "file:requirejs",
-    "underscore": "file:underscore"
+    "requirejs": "^2.1.20"
   }
 }

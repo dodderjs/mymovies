@@ -1,1 +1,3 @@
-Movielist site in different frameworks for test
+Moviesite v0.1
+
+Nothing special, just a test for backbonejs framework.

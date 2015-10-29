@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div(id="App")
+
+    div(id="Menu")
+      div(id="Search")
+        form
+          label(for="SearchInput")
+            span Search
+          input(type="text" placeholder="Enter what are you looking for..." name="searchText" id="SearchInput")
+          button(type="submit") Search
+
+    ul(id="MovieList" class="movie-list clearAfter")
+
+    div(id="MovieDetails")
+      ul(id="TorrentList")
+    div(id="Footer")
+      a(class="more") more movies

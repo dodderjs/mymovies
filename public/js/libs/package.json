@@ -1,0 +1,14 @@
+{
+  "name": "libs",
+  "version": "1.0.0",
+  "description": "client lib",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "backbone": "file:backbone",
+    "jquery": "file:jquery",
+    "jquery.cookie": "^1.4.1",
+    "requirejs": "file:requirejs",
+    "underscore": "file:underscore"
+  }
+}

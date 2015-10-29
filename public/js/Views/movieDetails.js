@@ -21,8 +21,8 @@ define([
 								'<h4><%= hu_title %></h4>'+
 								'<p><%= plot %></p>' +
 								'<ul class="spec">' +
-									'<li>Released date: <%= new Date(release_date).toDateString() %></li>'+
-									'<li>Uploaded date: <%= new Date(lastupload).toDateString() %></li>'+
+									'<li>Released date: <%= new Date(release_date * 1000).toDateString() %></li>'+
+									'<li>Uploaded date: <%= new Date(lastupload * 1000).toDateString() %></li>'+
 									'<li>Rank: ' +
 										'<a href="http://www.imdb.com/title/<%= id %>" target="_blank">' +
 											'<%= imdb_rank %>' +

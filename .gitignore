@@ -2,3 +2,4 @@
 public/js/Configs/*
 node_modules
 public/js/libs/node_modules
+npm-debug.log

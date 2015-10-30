@@ -16,9 +16,8 @@ define([
 						'<th>3D</th>'+
 						'<th>Uploaded</th>'+
 						'<th>Size</th>'+
-						'<th>Downloads</th>'+
-						'<th>Seed</th>'+
-						'<th>Leech</th>'+
+						'<th>Detail</th>'+
+						'<th>Download</th>' +
 					'</thead>' +
 					'<tbody>' +
 					'</tbody>' +

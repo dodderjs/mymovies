@@ -8,12 +8,11 @@ define([
 		tagName: 'tr',
 		template: _.template(
 						'<td><%= type %></td>'+
-						'<td><%= threeD %></td>' +
+						'<td><%= threeD ? "3D" : "2D"%></td>' +
 						'<td><%= new Date(uploaded * 1000).getFullYear() %>-<%= new Date(uploaded * 1000).getMonth() %>-<%= new Date(uploaded * 1000).getDate() %></td>' +
 						'<td><%= Math.round(size / 1024 / 1024 * 100) / 100 %> GB</td>'+
-						'<td><%= downloads %></td>'+
-						'<td><%= seed %></td>'+
-						'<td><%= leach %></td>'
+						'<td><a href="https://ncore.cc/torrents.php?action=details&id=<%= id %>">Details</a></td>'+
+						'<td><a href="https://ncore.cc/torrents.php?action=download&id=<%= id %>">DOWNLOAD</a></td>'
 					),
  	
 	 	initialize: function() {

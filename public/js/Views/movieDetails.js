@@ -13,25 +13,24 @@ define([
 						'<div class="movieDetails">' +
 							'<figure>' +
 								'<a href="http://www.imdb.com/title/<%= id %>" target="_blank">' +
-									'<img src="<%= imageurl ? imageurl.small : "/images/noimage.jpg" %>" width="150" />'+
+									'<img src="<%= imageurl ? imageurl.small : "/images/noimage.jpg" %>" width="200" />'+
 								'</a>' +
 							'</figure>' +
 							'<div class="movie-info">'+
 								'<h2><%= title %></h2>'+
-								'<h4><%= hu_title %></h4>'+
 								'<p><%= plot %></p>' +
 								'<ul class="spec">' +
-									'<li>Released date: <%= new Date(release_date * 1000).toDateString() %></li>'+
-									'<li>Uploaded date: <%= new Date(lastupload * 1000).toDateString() %></li>'+
-									'<li>Rank: ' +
+									'<li><strong>Released date:</strong> <%= new Date(release_date * 1000).toDateString() %></li>'+
+									'<li><strong>Uploaded date:</strong> <%= new Date(lastupload * 1000).toDateString() %></li>'+
+									'<li><strong>Rank:</strong> ' +
 										'<a href="http://www.imdb.com/title/<%= id %>" target="_blank">' +
 											'<%= imdb_rank %>' +
 										'</a>' +
 									'</li>'+
-									'<li>Runtime: <%= runtime %></li>'+
+									'<li><strong>Runtime:</strong> <%= runtime %></li>'+
 								'</ul>'+
-								'<div id="Torrents"></div>' +
 							'</div>'+
+							'<div id="Torrents"></div>' +
 							'<% if (imageurl) { %>' +
 								'<img src="<%= imageurl.original %>" class="detailsBg" />' +
 							'<% } %>' +

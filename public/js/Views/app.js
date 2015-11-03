@@ -15,15 +15,21 @@ define([
 
 		initialize: function () {
 			this.movies = Movies;
-			$('#Footer .more').hide();
 			this.scrollInit();
+
+			this.movies.on('request', $.proxy(function() {
+				this.$el.addClass('loading');
+			}, this));
+			this.movies.on('sync', $.proxy(function() {
+				this.$el.removeClass('loading');
+			}, this));
 		},
 
 		loadMore: function () {
 			this.movies.fetch({ add: true, merge: true, remove: false , success: function (collection, response) {
 				if (response.length < 50) {
 					$(window).off('scroll');
-					$('#Footer .more').hide();
+					$('#Footer .more').addClass('din');
 				}
 			}});
 		},
@@ -47,7 +53,7 @@ define([
 
 			if (this.movies.page > 2) {
 				$(window).off('scroll');
-				$('#Footer .more').show();
+				$('#Footer .more').removeClass('din');
 			}
 		}
 	});

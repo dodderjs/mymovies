@@ -32,7 +32,6 @@ require([
 ], function (Backbone, AppView, Workspace) {
 	var workspace = new Workspace();
 
-	Backbone.history.start();
+	Backbone.history.start({pushState: true});
 	var app = new AppView();
-
 });

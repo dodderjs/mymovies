@@ -5,5 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Just a moviesite' });
 });
+router.get('/movie/:id', function(req, res, next) {
+  res.render('index', { title: 'Just a moviesite', id: req.params.id });
+});
 
 module.exports = router;

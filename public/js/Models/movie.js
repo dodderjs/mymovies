@@ -22,6 +22,8 @@ define([
 			fresh: false
 		},
 
+		urlRoot: config.baseurl + '/movies/',
+
 		set: function (key, val, options) {
 			var lastVisit = $.cookie('lastVisit');
 
@@ -40,7 +42,7 @@ define([
 				
 			}
 
-			Backbone.Model.prototype.set.apply(this, arguments);
+			return Backbone.Model.prototype.set.apply(this, arguments);
 		}
 
 	});

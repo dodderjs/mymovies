@@ -2,9 +2,8 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone',
-	'Views/movieDetails'
-], function ($, _, Backbone, Details) {
+	'backbone'
+], function ($, _, Backbone) {
 	return Backbone.View.extend({
 		
 		tagName:  'li',
@@ -28,8 +27,6 @@ define([
 	 	initialize: function(options) {
 	 		_.bindAll(this, 'render');
 	    	this.model.bind('change', this.render);
-
-	    	this.details = new Details({ model: this.model });
 	    },
 
 	    render: function() {
@@ -38,7 +35,7 @@ define([
 	    },
 
 	    select: function () {
-	    	this.details.render();
+	    	this.model.trigger('select', this.model);
 	    }
 	});
 });

@@ -6,7 +6,7 @@ define([
 	'Collections/torrents',
 	'Views/torrentList'
 ], function ($, _, Backbone, Torrents, TorrentsView) {
-	return Backbone.View.extend({
+	return new (Backbone.View.extend({
 		el: '#MovieDetails',
 
 		template: _.template(
@@ -46,7 +46,9 @@ define([
 			this.torrents = Torrents;
 	    },
 
-	    render: function() {
+	    render: function(model) {
+	    	this.model = model || this.model;
+
 	    	this.$el.html(this.template( this.model.toJSON() )).show();
 
 			this.torrentsView = new TorrentsView({ el: '#Torrents', collection: this.torrents });
@@ -59,7 +61,8 @@ define([
 	    },
 
 	    close: function () {
+	    	this.trigger('close');
 	    	this.$el.hide();
 	    }
-	});
+	}))();
 });

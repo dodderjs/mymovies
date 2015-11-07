@@ -18,21 +18,24 @@ define([
 			this.movies = MovieCollection;
 			this.details = MovieDetails;
 			this.list = new MovieList({ collection: this.movies });
-		},
 
-		index: function() {
 			this.movies.on('select', $.proxy(function (model) {
 				this.details.render(model);
 				this.navigate('movie/' + model.get('id'));
 			},this));
+		},
 
-			this.movies.fetch({
-				reset: true
-			});
+		index: function() {			
+			this.details.close();
 
-			this.details.on('close', $.proxy(function () {
-				this.navigate('');
-			}, this));
+			if (!this.movies.models.length) {
+				this.movies.fetch({
+					reset: true
+				});
+				this.details.on('close', $.proxy(function () {
+					this.navigate('');
+				}, this));
+			}
 
 			if (!$.cookie('lastVisit')) {
 				$.cookie('lastVisit', Date.now(), { expires: 0.5 }); 
@@ -40,7 +43,7 @@ define([
 		},
 
 		movie: function (id) {
-			var model = new Movie({ id: id });
+			var model = this.movies.get(id) || new Movie({ id: id });
 			model.fetch({ 
 				context: this,
 				success: function (m) {
@@ -48,7 +51,7 @@ define([
 				}
 			});
 
-			this.details.on('close', $.proxy(function () {
+			this.details.once('close', $.proxy(function () {
 				this.navigate('', {trigger:true});
 				model.destroy();
 			}, this));

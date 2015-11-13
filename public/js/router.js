@@ -20,6 +20,7 @@ define([
 			this.list = new MovieList({ collection: this.movies });
 
 			this.movies.on('select', $.proxy(function (model) {
+				this.list.hide();
 				this.details.render(model);
 				this.navigate('movie/' + model.get('id'));
 			},this));
@@ -27,6 +28,7 @@ define([
 
 		index: function() {			
 			this.details.close();
+			this.list.show();
 
 			if (!this.movies.models.length) {
 				this.movies.fetch({
@@ -34,6 +36,7 @@ define([
 				});
 				this.details.on('close', $.proxy(function () {
 					this.navigate('');
+					this.list.show();
 				}, this));
 			}
 

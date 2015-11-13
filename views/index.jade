@@ -11,12 +11,13 @@ block content
           input(type="text" placeholder="Enter what are you looking for..." name="searchText" id="SearchInput")
           button(type="submit") Search
 
-    ul(id="MovieList" class="movie-list clearAfter")
+    div(id="MovieListView")
+      ul(id="MovieList" class="movie-list clearAfter")
+      a(class="more din") more movies
 
     div(id="MovieDetails")
       ul(id="TorrentList")
-    div(id="Footer")
-      a(class="more din") more movies
+    
     div(class="sk-folding-cube")
       div(class="sk-cube1 sk-cube")
       div(class="sk-cube2 sk-cube")

@@ -9,12 +9,16 @@ define([
 		tagName:  'li',
 
 		template: _.template(
-						'<div class="movie <%= fresh ? "new" : "" %>">'+
+						'<div class="movie <%= fresh ? "new" : "" %> <%= imageurl ? "" : "no-image" %>">'+
 							'<figure>'+
 								'<img src="<%= imageurl ? imageurl.small : "/images/noimage.jpg" %>" width="150" />'+
 							'</figure>'+
 							'<div class="movie-details">'+
-								'<h4 title=""><%= title %></h4>' +
+								'<h4><%= title %></h4>' +
+								'<p>Release: <%= new Date(release_date*1000).toLocaleDateString() %></p>' +
+								'<% if (pg) { %>' +
+									'<p>PG: <%= pg %></p>' +
+								'<% } %>' +
 							'</div>'+
 						'</div>'),
 

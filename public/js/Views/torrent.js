@@ -7,7 +7,11 @@ define([
 	return Backbone.View.extend({
 		tagName: 'tr',
 		template: _.template(
-						'<td><%= type %></td>'+
+						'<td><%= type %>' +
+							'<% if (quality > 0) { %>' +
+								' <span>(<%= quality === 1 ? "720p" : "1080p" %>)</span>' +
+							'<% } %>' +
+						'</td>'+
 						'<td><%= !compression ? "unknown" : compression %></td>'+
 						'<td><%= threeD ? "3D" : "2D"%></td>' +
 						'<td><%= new Date(uploaded * 1000).getFullYear() %>-<%= new Date(uploaded * 1000).getMonth() %>-<%= new Date(uploaded * 1000).getDate() %></td>' +

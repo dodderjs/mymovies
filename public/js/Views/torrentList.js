@@ -13,6 +13,7 @@ define([
 				'<table class="torrents">'+
 					'<thead>' +
 						'<th>Type</th>'+
+						'<th>Compression</th>'+
 						'<th>3D</th>'+
 						'<th>Uploaded</th>'+
 						'<th>Size</th>'+

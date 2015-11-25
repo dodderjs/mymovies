@@ -8,6 +8,7 @@ define([
 		tagName: 'tr',
 		template: _.template(
 						'<td><%= type %></td>'+
+						'<td><%= !compression ? "unknown" : compression %></td>'+
 						'<td><%= threeD ? "3D" : "2D"%></td>' +
 						'<td><%= new Date(uploaded * 1000).getFullYear() %>-<%= new Date(uploaded * 1000).getMonth() %>-<%= new Date(uploaded * 1000).getDate() %></td>' +
 						'<td><%= Math.round(size / 1024 / 1024 * 100) / 100 %> GB</td>'+

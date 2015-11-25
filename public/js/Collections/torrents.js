@@ -26,7 +26,9 @@ define([
 			size: 0,
 			threeD: 0,
 			type: '',
-			uploaded: 0
+			uploaded: 0,
+			compression: null,
+			title: ''
 		},
 
 		fetch: function(options) {

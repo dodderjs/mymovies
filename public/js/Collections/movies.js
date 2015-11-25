@@ -11,9 +11,9 @@ define([
 		url: '/api/movies/onseed/',
 
 		//comparator: 'lastupload'
-		comparator: function(movie) {
+		/*comparator: function(movie) {
   			return -movie.get('lastupload');
-		},
+		},*/
 
 		page: 1,
 

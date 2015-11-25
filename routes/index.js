@@ -12,6 +12,14 @@ router.get('/movie/:id', function(req, res, next) {
   res.render('index', { title: 'Just a moviesite', id: req.params.id });
 });
 
+router.get('/upcoming', function(req, res, next) {
+  res.render('index', { title: 'Just a moviesite'});
+});
+
+router.get('/upcoming/movie/:id', function(req, res, next) {
+  res.render('index', { title: 'Just a moviesite', id: req.params.id });
+});
+
 router.get('/movie/:id/image(/:width)?', function(req, res, next) {
 	var url = config.url + '/movies/image/' + req.params.id + (req.params.width ? '?w=' + req.params.width : '');
 

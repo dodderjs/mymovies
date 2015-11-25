@@ -13,7 +13,7 @@ define([
 						'<div class="movieDetails">' +
 							'<figure>' +
 								'<a href="http://www.imdb.com/title/<%= id %>" target="_blank">' +
-									'<img src="<%= imageurl ? imageurl.small : "/images/noimage.jpg" %>" width="200" />'+
+									'<img src="<%= poster ? poster.small : "/images/noimage.jpg" %>" width="200" />'+
 								'</a>' +
 							'</figure>' +
 							'<div class="movie-info">'+
@@ -31,8 +31,8 @@ define([
 								'</ul>'+
 							'</div>'+
 							'<div id="Torrents"></div>' +
-							'<% if (imageurl) { %>' +
-								'<img src="<%= imageurl.original %>" class="detailsBg" />' +
+							'<% if (poster) { %>' +
+								'<img src="<%= poster.original %>" class="detailsBg" />' +
 							'<% } %>' +
 						'</div>'),
 

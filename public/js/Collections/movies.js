@@ -2,14 +2,13 @@
 define([
 	'underscore',
 	'backbone',
-	'Models/movie',
-	'config'
-], function (_, Backbone, Movie, config) {
+	'Models/movie'
+], function (_, Backbone, Movie) {
 	
 	var Movies = Backbone.Collection.extend({
 		model: Movie,
 
-		url: config.baseurl + '/movies',
+		url: '/api/movies/onseed/',
 
 		//comparator: 'lastupload'
 		comparator: function(movie) {
@@ -20,7 +19,7 @@ define([
 
 		fetch: function(options) {
 			this.page = options.reset ? 1 : this.page + 1; 
-			
+
 			if (this.page > 1) {
 				_.extend(options, { data: { page: this.page }})
 			}

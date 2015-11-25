@@ -2,16 +2,15 @@
 define([
 	'underscore',
 	'backbone',
-	'Models/torrent',
-	'config'
-], function (_, Backbone, Torrent, config) {
+	'Models/torrent'
+], function (_, Backbone, Torrent) {
 	
 	var Torrents = Backbone.Collection.extend({
 		// Reference to this collection's model.
 		model: Torrent,
 
 		url: function () {
-			return config.baseurl + '/torrents/movie/' + this.id
+			return '/api/torrents/movie/' + this.id
 		},
 
 		id:  null,

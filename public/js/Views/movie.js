@@ -9,9 +9,9 @@ define([
 		tagName:  'li',
 
 		template: _.template(
-						'<div class="movie <%= fresh ? "new" : "" %> <%= imageurl ? "" : "no-image" %>">'+
+						'<div class="movie <%= fresh ? "new" : "" %> <%= poster ? "" : "no-image" %>">'+
 							'<figure>'+
-								'<img src="<%= imageurl ? imageurl.small : "/images/noimage.jpg" %>" width="150" />'+
+								'<img src="<%= poster ? poster.small : "/images/noimage.jpg" %>" width="150" />'+
 							'</figure>'+
 							'<div class="movie-details">'+
 								'<h4><%= title %></h4>' +

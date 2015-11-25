@@ -1,16 +1,15 @@
 define([
 	'underscore',
 	'backbone',
-	'Collections/torrents',
-	'config'
-], function (_, Backbone, Torrents, config) {
+	'Collections/torrents'
+], function (_, Backbone, Torrents) {
 
 	return Backbone.Model.extend({
 		defaults: {
 			id: '',
 			title: '',
 			hu_title: '',
-			imageurl: null,
+			poster: null,
 			imdb_rank: 0,
 			lastupload: 0,
 			metascore: 0,
@@ -22,21 +21,24 @@ define([
 			fresh: false
 		},
 
-		urlRoot: config.baseurl + '/movies/',
+		urlRoot: '/api/movie',
 
 		set: function (key, val, options) {
 			var lastVisit = $.cookie('lastVisit');
 
 			if (typeof key === 'object') {
-				key.imageurl = key.imageurl ? { 'small': config.baseurl + '/movies/image/' + key.id + '?w=200', 'original': config.baseurl + '/movies/image/' + key.id } : null;
+				console.log('jjj:',key.imageurl, key.id)
+				key.poster = key.poster ? { 'small': '/api/movies/' + key.id + '/image/200', 'original': '/api/movies/' + key.id + '/image' } : null;
 				key.fresh = lastVisit < key.lastupload * 1000;
+				console.log('jjj:',key.imageurl, key.id)
 			} else {
 				switch (key) {
 					case 'lastupload': 
 						fresh = lastVisit < val * 1000;
 						break;
-					case 'imageurl':
-						val = val ? { 'small': config.baseurl + '/movies/image/' + key.id + '?w=200', 'original': config.baseurl + '/movies/image/' + key.id } : null;
+					case 'poster':
+						val = val ? { 'small': '/api/movies/' + this.id + '/image/200', 'original': '/api/movies/' + this.id + '/image' } : null;
+						console.log('kljlkj', key, val, this.id)
 						break;
 				}
 				

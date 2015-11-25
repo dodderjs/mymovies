@@ -19,8 +19,7 @@ require.config({
 		jquery: 'libs/node_modules/jquery/dist/jquery.min',
 		underscore: 'libs/node_modules/underscore/underscore-min',
 		backbone: 'libs/node_modules/backbone/backbone-min',
-		cookie: 'libs/node_modules/jquery.cookie/jquery.cookie',
-		config: 'Configs/api'
+		cookie: 'libs/node_modules/jquery.cookie/jquery.cookie'
 	}
 });
 

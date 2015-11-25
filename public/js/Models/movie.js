@@ -21,16 +21,14 @@ define([
 			fresh: false
 		},
 
-		urlRoot: '/api/movie',
+		urlRoot: '/api/movies',
 
 		set: function (key, val, options) {
 			var lastVisit = $.cookie('lastVisit');
 
 			if (typeof key === 'object') {
-				console.log('jjj:',key.imageurl, key.id)
 				key.poster = key.poster ? { 'small': '/api/movies/' + key.id + '/image/200', 'original': '/api/movies/' + key.id + '/image' } : null;
-				key.fresh = lastVisit < key.lastupload * 1000;
-				console.log('jjj:',key.imageurl, key.id)
+				key.fresh = lastVisit < key.lastupload * 1000;				
 			} else {
 				switch (key) {
 					case 'lastupload': 

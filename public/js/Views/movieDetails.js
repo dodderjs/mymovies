@@ -32,7 +32,7 @@ define([
 							'</div>'+
 							'<div id="Torrents"></div>' +
 							'<% if (poster) { %>' +
-								'<img src="<%= poster.original %>" class="detailsBg" />' +
+								'<img src="<%= poster.small %>" class="detailsBg" />' +
 							'<% } %>' +
 						'</div>'),
 

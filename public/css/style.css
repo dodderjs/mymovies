@@ -295,6 +295,8 @@ a {
     z-index: -1;
     opacity: 0.3;
     left: 0;
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
 }
 #MovieDetails table {
     width: 100%;

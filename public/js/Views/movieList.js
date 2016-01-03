@@ -48,10 +48,10 @@ define([
 	    	return this;
 	    },
 	    hide: function () {
-	    	this.$el.hide();
+	    	this.$el.css('overflow', 'hidden');
 	    },
 	    show: function () {
-	    	this.$el.show();
+	    	this.$el.css('overflow', 'auto');
 	    },
 
 		loadMore: function () {

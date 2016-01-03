@@ -33,6 +33,7 @@ define([
 
 	    // Re-render the contents of the todo item.
 	    render: function() {
+	    	if (!this.collection.length) return this;
 	    	var element = $(this.el).html(this.template());
 
 			this.collection.forEach(function(item) {

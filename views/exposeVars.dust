@@ -1,0 +1,7 @@
+<script type="text/javascript">
+	if (!window.dodder) {
+		window.dodder = {};
+	}
+
+	window.dodder.vars = {exposedVars|s};
+</script>

@@ -1,0 +1,13 @@
+<div id="Menu">
+	<ul class="navigation">
+		<li class="navItem {@eq key=active value="main"}active{/eq}"><a href="/">Movies</a></li>
+		<li class="navItem {@eq key=active value="upcoming"}active{/eq}"><a href="/upcoming">Upcoming</a></li>
+	{?user}
+		<li class="navItem {@eq key=active value="wishlist"}active{/eq}"><a href="/wishlist">Wishlist</a></li>
+		<li class="navItem {@eq key=active value="profile"}active{/eq}"><a href="/profile">Profile</a></li>
+	{:else}
+	  	<li class="navItem {@eq key=active value="login"}active{/eq}"><a href="/auth/google">Login/SignUp</a></li>
+	{/user}
+      </ul>
+	</ul>
+</div>

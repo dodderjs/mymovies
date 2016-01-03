@@ -17,11 +17,13 @@ define([
 								'</a>' +
 							'</figure>' +
 							'<div class="movie-info">'+
-								'<h2><%= title %></h2>'+
+								'<h2><a href="http://www.imdb.com/title/<%= id %>" target="_blank"><%= title %></a></h2>'+
 								'<p><%= plot %></p>' +
 								'<ul class="spec">' +
 									'<li><strong>Released date:</strong> <%= new Date(release_date * 1000).toDateString() %></li>'+
-									'<li><strong>Uploaded date:</strong> <%= new Date(lastupload * 1000).toDateString() %></li>'+
+									'<% if (lastupload) { %>' +
+										'<li><strong>Uploaded date:</strong> <%= new Date(lastupload * 1000).toDateString() %></li>'+
+									'<% } %>' +
 									'<li><strong>Rank:</strong> ' +
 										'<a href="http://www.imdb.com/title/<%= id %>" target="_blank">' +
 											'<%= imdb_rank %>' +
@@ -30,6 +32,15 @@ define([
 									'<li><strong>Runtime:</strong> <%= runtime %></li>'+
 								'</ul>'+
 							'</div>'+
+							
+							'<% if (imdb_videoid) { %>' +
+							'<iframe id="ImdbVideo" ' +
+								'src="http://www.imdb.com/video/imdb/<%= imdb_videoid %>/imdb/embed?autoplay=false&width=480" ' +
+								'width="480" height="270" ' +
+								'allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" ' +
+								'frameborder="no" scrolling="no"></iframe>' +
+							'<% } %>' +
+
 							'<div id="Torrents"></div>' +
 							'<% if (poster) { %>' +
 								'<img src="<%= poster.small %>" class="detailsBg" />' +
@@ -44,6 +55,7 @@ define([
  	
 	 	initialize: function(options) {
 			this.torrents = Torrents;
+			this.torrentsView = new TorrentsView({ el: '#Torrents', collection: this.torrents });
 	    },
 
 	    render: function(model) {
@@ -51,7 +63,7 @@ define([
 
 	    	this.$el.html(this.template( this.model.toJSON() )).show();
 
-			this.torrentsView = new TorrentsView({ el: '#Torrents', collection: this.torrents });
+			this.torrentsView.el = '#Torrents';
 			this.torrents.fetch({ 
 				id: this.model.get('id'), 
 				reset: true

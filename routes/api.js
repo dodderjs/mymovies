@@ -4,15 +4,21 @@ var request = require('request');
 var config = require('../config/api');
 
 /* GET home page. */
-router.get('/*', function(req, res, next) {
-	var url = config.url + req.path;
+router.use(function(req, res, next) {
+	var url = config.url + req.path,
+		headers = { 'x-access-apikey': config.key };
 
-  	req.pipe(
-  		request({
-  			url: url,
-  			headers: {'x-access-apikey': config.key},
-  			qs: req.query
-  		})).pipe(res);
+		if (req.user && req.user.token) {
+			headers['x-user-token'] = req.user.token;
+		}
+
+	request({
+		url: url,
+		headers: headers,
+		qs: req.query,
+		user: req.user
+	}).pipe(res);
 });
+
 
 module.exports = router;

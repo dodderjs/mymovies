@@ -18,7 +18,8 @@ define([
 			release_date: 0,
 			runtime: 0,
 			year: 0,
-			fresh: false
+			fresh: false,
+			imdb_videoid: null
 		},
 
 		urlRoot: '/api/movies',

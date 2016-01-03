@@ -1,0 +1,12 @@
+{>"layout"/}
+
+{<title}Index - {title}{/title}
+
+
+{<html_body}
+	<h1>{message}</h1>
+	<h2>{error.status}</h2>
+	<pre>{error.stack}</pre>
+{/html_body}
+
+{<copy}{copy|s}{/copy}

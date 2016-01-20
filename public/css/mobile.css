@@ -29,21 +29,36 @@
 
 /* iPhones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-	body {
-		font-size: 20px;
-	}
 	.movie-list > li {
         width: 20%;
     }
+    #MovieDetails .movieDetails {
+		padding: 10px;
+	}
+	#MovieDetails .movieDetails figure img {
+		width: 100px;
+	}
+	#MovieDetails .movie-info {
+		margin-left: 110px;
+		font-size: 0.8em;
+	}
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-	body {
-		font-size: 30px;
-	}
 	.movie-list > li {
         width: 33.3%;
     }
+    
+    #MovieDetails .movieDetails {
+		padding: 10px;
+	}
+	#MovieDetails .movieDetails figure img {
+		width: 100px;
+	}
+	#MovieDetails .movie-info {
+		margin-left: 110px;
+		font-size: 0.8em;
+	}
 }
 
 /* iPhone 6 ----------- */
